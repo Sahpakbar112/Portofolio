@@ -1,0 +1,12 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Dependencies (jika ada tooling tambahan nanti)
+node_modules/
