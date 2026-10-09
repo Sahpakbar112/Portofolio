@@ -1007,3 +1007,182 @@ footer {
 html {
   scroll-padding-top: 90px;
 }
+
+/* //section android download disini */
+
+/* ANDROID PROJECTS */
+.android-projects {
+  padding: 65px 6%;
+  background: #f8f9fb;
+}
+
+.android-projects .section-title-container {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.projects-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.android-projects .section-title-container h2 {
+  margin: 0 0 10px;
+  color: #172033;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 750;
+}
+
+.android-projects .section-title-container p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* 4 KOLOM DESKTOP: 4 ATAS, 4 BAWAH */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  min-width: 0;
+  padding: 20px 16px 16px;
+  background: #fff;
+  border: 1px solid #e5e9f0;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.project-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  background: #eef2f7;
+  color: #334155;
+  font-size: 19px;
+}
+
+.project-number {
+  color: #94a3b8;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.project-card h3 {
+  margin: 8px 0 6px;
+  color: #1e293b;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.project-tech {
+  margin: 0 0 18px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.project-download {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 10px 8px;
+  border: 1px solid #dbe2ea;
+  border-radius: 7px;
+  color: #ff5722;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 650;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.project-download:hover {
+  background: #172033;
+  border-color: #172033;
+  color: #fff;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+/* HP */
+@media (max-width: 480px) {
+  .android-projects {
+    padding: 45px 5%;
+  }
+
+  .projects-grid {
+    gap: 10px;
+  }
+
+  .project-card {
+    padding: 14px 11px 12px;
+    border-radius: 9px;
+  }
+
+  .project-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .project-card h3 {
+    font-size: 13px;
+  }
+
+  .project-tech {
+    font-size: 10px;
+  }
+
+  .project-download {
+    gap: 5px;
+    padding: 9px 4px;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-download {
+    transition: none;
+  }
+}

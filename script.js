@@ -26,10 +26,7 @@ filterBtns.forEach((btn) => {
     let visible = 0;
 
     portfolioItems.forEach((item) => {
-      if (
-        filter === "all" ||
-        item.getAttribute("data-category") === filter
-      ) {
+      if (filter === "all" || item.getAttribute("data-category") === filter) {
         item.style.display = "block";
         visible++;
       } else {
@@ -112,7 +109,7 @@ function openModal(item) {
   modalThumbs.innerHTML = gallery
     .map(
       (src, i) =>
-        `<button type="button" aria-label="Gambar ${i + 1}"><img src="${src}" alt="" loading="lazy" /></button>`
+        `<button type="button" aria-label="Gambar ${i + 1}"><img src="${src}" alt="" loading="lazy" /></button>`,
     )
     .join("");
 
@@ -172,7 +169,7 @@ galleryBox.addEventListener(
   (e) => {
     touchStartX = e.changedTouches[0].screenX;
   },
-  { passive: true }
+  { passive: true },
 );
 
 galleryBox.addEventListener(
@@ -181,12 +178,12 @@ galleryBox.addEventListener(
     const diff = e.changedTouches[0].screenX - touchStartX;
     if (Math.abs(diff) > 50) setImage(currentIndex + (diff < 0 ? 1 : -1));
   },
-  { passive: true }
+  { passive: true },
 );
 
 // Efek muncul saat section masuk ke layar
 const revealTargets = document.querySelectorAll(
-  ".service-card, .skill-box, .portfolio-item, .about-text, .about-image"
+  ".service-card, .skill-box, .portfolio-item, .about-text, .about-image",
 );
 
 if ("IntersectionObserver" in window) {
@@ -199,7 +196,7 @@ if ("IntersectionObserver" in window) {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.1 },
   );
 
   revealTargets.forEach((el) => {
@@ -207,3 +204,39 @@ if ("IntersectionObserver" in window) {
     observer.observe(el);
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const filters = document.querySelectorAll(".project-filter");
+  const cards = document.querySelectorAll(".project-card");
+  const count = document.getElementById("projects-count");
+
+  function applyFilter(category) {
+    let visibleCount = 0;
+
+    cards.forEach((card) => {
+      const visible = category === "all" || card.dataset.category === category;
+
+      card.hidden = !visible;
+
+      if (visible) visibleCount++;
+    });
+
+    if (count) {
+      count.textContent = `${visibleCount} aplikasi`;
+    }
+  }
+
+  filters.forEach((button) => {
+    button.addEventListener("click", () => {
+      filters.forEach((filter) => {
+        const active = filter === button;
+        filter.classList.toggle("active", active);
+        filter.setAttribute("aria-pressed", String(active));
+      });
+
+      applyFilter(button.dataset.filter);
+    });
+  });
+
+  applyFilter("all");
+});
